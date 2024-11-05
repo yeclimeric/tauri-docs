@@ -29,7 +29,9 @@ The configuration is composed of the following objects:
 - [`build`](#buildconfig): The build configuration
 - [`plugins`](#pluginconfig): The plugins config
 
-```json title="Example tauri.config.json file" 
+Example tauri.config.json file:
+
+```json 
 {
   "build": {
     "beforeBuildCommand": "",
@@ -204,7 +206,7 @@ Can be any **ONE** of the following types:
 - "Overlay": Shows the title bar as a transparent overlay over the window's content.
 
 	Keep in mind:
-- The height of the title bar is different on different OS versions, which can lead to window the controls and title not being where you don't expect.
+- The height of the title bar is different on different OS versions, which can lead to the window controls and title not being where you expect them to be.
 - You need to define a custom drag region to make your window draggable, however due to a limitation you can't drag the window when it's not in focus <https://github.com/tauri-apps/tauri/issues/4316>.
 - The color of the window title depends on the system theme.
 
@@ -267,7 +269,7 @@ Type: `object`
 | ---- | ---- | ------- | ----------- |
 | <div className="anchor-with-padding" id="bundleconfig.active">`active`<a class="hash-link" href="#bundleconfig.active"></a></div> | boolean | `false` | Whether Tauri should bundle your application or just output the executable. |
 | <div className="anchor-with-padding" id="bundleconfig.targets">`targets`<a class="hash-link" href="#bundleconfig.targets"></a></div> | [`BundleTarget`](#bundletarget) | [view](#bundletarget) | The bundle targets, currently supports ["deb", "rpm", "appimage", "nsis", "msi", "app", "dmg", "updater"] or "all". |
-| <div className="anchor-with-padding" id="bundleconfig.identifier">`identifier`<a class="hash-link" href="#bundleconfig.identifier"></a></div> | string (required) |  | The application identifier in reverse domain name notation (e.g. `com.tauri.example`). This string must be unique across applications since it is used in system configurations like the bundle ID and path to the webview data directory. This string must contain only alphanumeric characters (A–Z, a–z, and 0–9), hyphens (-), and periods (.). |
+| <div className="anchor-with-padding" id="bundleconfig.identifier">`identifier`<a class="hash-link" href="#bundleconfig.identifier"></a></div> | string (required) |  | The application identifier in reverse domain name notation (e.g. `com.tauri.example`). This string must be unique across applications since it is used in system configurations like the bundle ID and path to the webview data directory. This string must contain only alphanumeric characters (A-Z, a-z, and 0-9), hyphens (-), and periods (.). |
 | <div className="anchor-with-padding" id="bundleconfig.publisher">`publisher`<a class="hash-link" href="#bundleconfig.publisher"></a></div> | string? | _null_ | The application's publisher. Defaults to the second element in the identifier string. Currently maps to the Manufacturer property of the Windows Installer. |
 | <div className="anchor-with-padding" id="bundleconfig.icon">`icon`<a class="hash-link" href="#bundleconfig.icon"></a></div> | string[] | [] | The app's icons |
 | <div className="anchor-with-padding" id="bundleconfig.resources">`resources`<a class="hash-link" href="#bundleconfig.resources"></a></div> | [`BundleResources`](#bundleresources)? | [view](#bundleresources) | App resources to bundle. Each resource is a path to a file or directory. Glob patterns are supported. |
@@ -361,7 +363,7 @@ Type: `object`
 | <div className="anchor-with-padding" id="rpmconfig.depends">`depends`<a class="hash-link" href="#rpmconfig.depends"></a></div> | array? | _null_ | The list of RPM dependencies your application relies on. |
 | <div className="anchor-with-padding" id="rpmconfig.provides">`provides`<a class="hash-link" href="#rpmconfig.provides"></a></div> | array? | _null_ | The list of RPM dependencies your application provides. |
 | <div className="anchor-with-padding" id="rpmconfig.conflicts">`conflicts`<a class="hash-link" href="#rpmconfig.conflicts"></a></div> | array? | _null_ | The list of RPM dependencies your application conflicts with. They must not be present in order for the package to be installed. |
-| <div className="anchor-with-padding" id="rpmconfig.obsoletes">`obsoletes`<a class="hash-link" href="#rpmconfig.obsoletes"></a></div> | array? | _null_ | The list of RPM dependencies your application supersedes<br />- if this package is installed, packages listed as “obsoletes” will be automatically removed (if they are present). |
+| <div className="anchor-with-padding" id="rpmconfig.obsoletes">`obsoletes`<a class="hash-link" href="#rpmconfig.obsoletes"></a></div> | array? | _null_ | The list of RPM dependencies your application supersedes<br />- if this package is installed, packages listed as "obsoletes" will be automatically removed (if they are present). |
 | <div className="anchor-with-padding" id="rpmconfig.release">`release`<a class="hash-link" href="#rpmconfig.release"></a></div> | string | _null_ | The RPM release tag. |
 | <div className="anchor-with-padding" id="rpmconfig.epoch">`epoch`<a class="hash-link" href="#rpmconfig.epoch"></a></div> | integer _(format: `uint32`)_ | `0` | The RPM epoch. |
 | <div className="anchor-with-padding" id="rpmconfig.files">`files`<a class="hash-link" href="#rpmconfig.files"></a></div> | object | _null_ | The files to include on the package. |
@@ -420,6 +422,7 @@ Type: `object`
 | <div className="anchor-with-padding" id="macconfig.exceptiondomain">`exceptionDomain`<a class="hash-link" href="#macconfig.exceptiondomain"></a></div> | string? | _null_ | Allows your application to communicate with the outside world. It should be a lowercase, without port and protocol domain name. |
 | <div className="anchor-with-padding" id="macconfig.license">`license`<a class="hash-link" href="#macconfig.license"></a></div> | string? | _null_ | The path to the license file to add to the DMG bundle. |
 | <div className="anchor-with-padding" id="macconfig.signingidentity">`signingIdentity`<a class="hash-link" href="#macconfig.signingidentity"></a></div> | string? | _null_ | Identity to use for code signing. |
+| <div className="anchor-with-padding" id="macconfig.hardenedruntime">`hardenedRuntime`<a class="hash-link" href="#macconfig.hardenedruntime"></a></div> | boolean | `true` | Whether the codesign should enable [hardened runtime](https://developer.apple.com/documentation/security/hardened_runtime) (for executables) or not. |
 | <div className="anchor-with-padding" id="macconfig.providershortname">`providerShortName`<a class="hash-link" href="#macconfig.providershortname"></a></div> | string? | _null_ | Provider short name for notarization. |
 | <div className="anchor-with-padding" id="macconfig.entitlements">`entitlements`<a class="hash-link" href="#macconfig.entitlements"></a></div> | string? | _null_ | Path to the entitlements file. |
 
