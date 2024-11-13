@@ -27,10 +27,10 @@ To build and bundle your app into a Windows installer you can use the Tauri CLI 
   cargo="cargo tauri build"
 />
 
-### Experimental: Build Windows apps on Linux and macOS
+### Build Windows apps on Linux and macOS
 
-Cross compiling Windows apps on Linux and macOS hosts is possible when using [NSIS].
-Note that this is currently considered highly experimental and may not work on every system or for every project.
+Cross compiling Windows apps on Linux and macOS hosts is possible with caveats when using [NSIS].
+It is not as straight forward as compiling on Windows directly and is not tested as much.
 Therefore it should only be used as a last resort if local VMs or CI solutions like GitHub Actions don't work for you.
 
 :::note
